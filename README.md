@@ -1,8 +1,8 @@
-# TODO App
+# NoteWise App
 
 ## Overview
 
-TODO is a web-based note-taking application designed for creating and managing small notes quickly. It utilizes real-time updates, allowing users to seamlessly create, edit, and delete notes with automatic page reloads. The app is built using HTML, CSS, Bootstrap, JavaScript, Node.js, Express.js, and MongoDB.
+NoteWise is a web-based note-taking application designed for creating and managing small notes quickly. It utilizes real-time updates, allowing users to seamlessly create, edit, and delete notes with automatic page reloads. The app is built using HTML, CSS, Bootstrap, JavaScript, Node.js, Express.js, and MongoDB.
 
 ## Features
 
@@ -24,7 +24,7 @@ npm install
 ### Installation
 ```bash
 # Clone the repository
-git clone https://github.com/Siddharth961/TODO-app.git
+git clone https://github.com/Manishl8304/NoteWise.git
 ```
 ### Make sure you setup your config variables
 - NODE_ENV
