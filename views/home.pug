@@ -1,0 +1,90 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    
+    title TODO App
+    link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css', rel='stylesheet', integrity='sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN', crossorigin='anonymous')
+    link(rel='stylesheet', href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css')
+    link(rel='stylesheet', href='style.css')
+    link(rel='shortcut icon', href='logo.jpg', type='image/x-icon')
+  body
+    .contain
+      section.first
+        h1.text-light.px-4
+          | TODO 
+          i.bi.bi-person-circle.float-end
+        .col-md-5.fw-medium.p-3.text-center(style='font-size: 1.2rem ; color: rgba(0, 0, 0, 0.673);')
+          | Enhance your workflow with a dynamic task management solution for seamless organization and productivity.
+        .d-flex.flex-column.bg-light-subtle.rounded
+          input#heading(type='text', name='heading', placeholder='TODO')
+          |  
+          textarea#body(name='body', placeholder='Body', cols='30', rows='4')
+          button#add-btn(type='button') Add
+      section.second
+        .col-8.border
+          each note in notes
+            .col-lg-3.my-card(noteid= note.id)
+              .mycard-title.px-3.pt-2
+                | #{note.title}
+              .mycard-body.fs-5.px-3.pt-1
+                | #{note.body}
+              .mycard-data
+                span= note.createdAt
+                        
+      footer
+        div
+          | Copyright 
+          i.bi.bi-c-circle
+          |  2024. All rights preserved.
+        div Sid Developer
+    // Delete Note
+    .delete.col-10.col-md-4
+      .fs-5.fw-medium.mt-3 Are you sure, you want to delete this note?
+      .p-4
+        button#del-yes-btn(type='button') YES
+        button#del-no-btn(type='button') NO
+    // Edit note
+    .edit.col-10.col-md-4
+      .d-flex.flex-column.bg-light-subtle
+        input#heading(type='text', name='heading', )
+        |  
+        textarea#body(name='body', cols='30', rows='4')
+        .d-flex.justify-content-between.px-4.pt-2
+          button#note-edit-btn(type='button' class='red') Edit
+          button#note-delete-btn(type='button' class='red-inverse') Delete
+    // Profile
+    .profile.col-md-2.col-9.border
+      h4
+        i.bi.bi-x-lg
+      h1
+        i.bi.bi-person-fill
+      h6= user.name
+      p= user.email
+      button#update.red.col-md-7.col-11 Change Password
+      button#logout.red-inverse.col-md-7.col-11 LogOut
+    //
+      <div class="fake-screen">
+      dc
+      </div>
+    // Reset Password
+    .update.col-lg-3.col-10.p-3
+      h4
+        i.bi.bi-x-lg.float-end
+      form( autocomplete = 'false')
+        .fs-3.text-center.mb-4 Change Password
+        .mb-3
+          label.form-label(for='oldPassword') Current Password
+          input#oldPassword.form-control(name='oldPassword', type='password', placeholder='*********', required)
+        .mb-3
+          label.form-label(for='password') New Password
+          input#password.form-control(name='password', type='password', placeholder='*********', required)
+        .mb-4
+          label.form-label(for='passwordConfirm') Confirm Password
+          input#passwordConfirm.form-control(name='passwordConfirm', type='password', placeholder='*********', required)
+        button.btn.pass-update-btn(type='submit') Update Password
+
+    script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js', integrity='sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL', crossorigin='anonymous')
+    script(src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js")
+    script(src='home.js')
